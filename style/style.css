@@ -1,0 +1,70 @@
+.calendar {
+  width: 280px;
+  padding: 5px;
+  position: relative; }
+  .calendar > input {
+    width: 50%;
+    height: 20px;
+    padding: 5px; }
+  .calendar > div {
+    width: 100%;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #eee;
+    position: absolute;
+    top: 50px;
+    left: 0px; }
+    .calendar > div div.day-select {
+      display: flex;
+      padding: 5px 0;
+      height: 30px;
+      line-height: 30px;
+      color: #888888;
+      border-bottom: 1px solid #ccc; }
+      .calendar > div div.day-select input,
+      .calendar > div div.day-select button {
+        border: none;
+        background: white;
+        text-align: center;
+        color: #888888;
+        cursor: pointer; }
+      .calendar > div div.day-select > div:nth-child(1),
+      .calendar > div div.day-select > div:nth-child(3) {
+        width: 20%; }
+      .calendar > div div.day-select > div:nth-child(2) {
+        width: 60%;
+        display: flex;
+        justify-content: center; }
+        .calendar > div div.day-select > div:nth-child(2) input:hover {
+          background: #eee; }
+        .calendar > div div.day-select > div:nth-child(2) input:nth-child(1) {
+          width: 50px; }
+        .calendar > div div.day-select > div:nth-child(2) input:nth-child(2) {
+          width: 30px; }
+    .calendar > div div.day-screen > div {
+      width: 280px;
+      padding: 0 5px;
+      display: flex;
+      font-size: 14px;
+      justify-content: flex-start;
+      flex-wrap: wrap; }
+      .calendar > div div.day-screen > div span {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc; }
+    .calendar > div div.day-screen > div:nth-child(1) {
+      font-weight: bold;
+      background: #F8F8F8; }
+    .calendar > div div.day-screen > div:nth-child(2) span {
+      cursor: pointer;
+      color: black; }
+      .calendar > div div.day-screen > div:nth-child(2) span:hover {
+        background: #21A5EF;
+        color: white; }
+    .calendar > div div.day-screen > div:nth-child(2) span.previousMonth,
+    .calendar > div div.day-screen > div:nth-child(2) span.nextMonth {
+      color: #888888; }
+
+/*# sourceMappingURL=style.css.map */

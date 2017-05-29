@@ -1,0 +1,88 @@
+.calendar {
+    width: 280px;
+    padding: 5px;
+    position: relative;
+    >input {
+        width: 50%;
+        height: 20px;
+        padding: 5px;
+    }
+    >div {
+        width: 100%;
+        border: 1px solid #EAEAEA;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px #eee;
+        position: absolute;
+        top: 50px;
+        left: 0px;
+        div.day-select {
+            display: flex;
+            padding: 5px 0;
+            height: 30px;
+            line-height: 30px;
+            color: #888888;
+            border-bottom: 1px solid #ccc;
+            input,
+            button {
+                border: none;
+                background: white;
+                text-align: center;
+                color: #888888;
+                cursor: pointer;
+            }
+            >div:nth-child(1),
+            >div:nth-child(3) {
+                width: 20%;
+            }
+            >div:nth-child(2) {
+                width: 60%;
+                display: flex;
+                justify-content: center;
+                input:hover {
+                    background: #eee;
+                }
+                input:nth-child(1) {
+                    width: 50px;
+                }
+                input:nth-child(2) {
+                    width: 30px;
+                }
+            }
+        }
+        div.day-screen {
+            >div {
+                width: 280px;
+                padding: 0 5px;
+                display: flex;
+                font-size: 14px;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                span {
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 40px;
+                    border-bottom: 1px solid #ccc;
+                }
+            }
+            >div:nth-child(1) {
+                font-weight: bold;
+                background: #F8F8F8;
+            }
+            >div:nth-child(2) {
+                span {
+                    cursor: pointer;
+                    color: black;
+                    &:hover {
+                        background: #21A5EF;
+                        color: white;
+                    }
+                }
+                span.previousMonth,
+                span.nextMonth {
+                    color: #888888;
+                }
+            }
+        }
+    }
+}
