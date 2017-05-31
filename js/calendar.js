@@ -54,10 +54,19 @@ Vue.component('calendar', {
         },
     },
     watch: {
-        year: function () {
+        year: function (val) {
+            if (val < 0) {
+                this.year = 1;
+            }
             this.dayScreen();
         },
-        month: function () {
+        month: function (val) {
+            if (val < 1) {
+                this.month = 1;
+            }
+            if (val > 12) {
+                this.month = 12;
+            }
             this.dayScreen();
         },
     },
