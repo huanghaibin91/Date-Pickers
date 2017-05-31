@@ -55,12 +55,20 @@ Vue.component('calendar', {
     },
     watch: {
         year: function (val) {
+            if (typeof val !== 'number') {
+                let date = new Date();
+                this.year = date.getFullYear();
+            }
             if (val < 0) {
                 this.year = 1;
             }
             this.dayScreen();
         },
         month: function (val) {
+            if (typeof val !== 'number') {
+                let date = new Date();
+                this.month = date.getMonth() + 1;
+            }
             if (val < 1) {
                 this.month = 1;
             }
