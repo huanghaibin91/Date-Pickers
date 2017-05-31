@@ -6,6 +6,11 @@
     width: 50%;
     height: 20px;
     padding: 5px; }
+  .calendar .fade-enter-active, .calendar .fade-leave-active {
+    transition: all 0.5s; }
+  .calendar .fade-enter, .calendar .fade-leave-active {
+    opacity: 0;
+    transform: translateY(-10px); }
   .calendar > div {
     width: 100%;
     border: 1px solid #EAEAEA;
@@ -60,7 +65,7 @@
     .calendar > div div.day-screen > div:nth-child(2) span {
       cursor: pointer;
       color: black; }
-      .calendar > div div.day-screen > div:nth-child(2) span:hover {
+      .calendar > div div.day-screen > div:nth-child(2) span:hover, .calendar > div div.day-screen > div:nth-child(2) span.active {
         background: #21A5EF;
         color: white; }
     .calendar > div div.day-screen > div:nth-child(2) span.previousMonth,

@@ -7,6 +7,13 @@
         height: 20px;
         padding: 5px;
     }
+    .fade-enter-active, .fade-leave-active {
+        transition: all 0.5s;
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
     >div {
         width: 100%;
         border: 1px solid #EAEAEA;
@@ -73,7 +80,7 @@
                 span {
                     cursor: pointer;
                     color: black;
-                    &:hover {
+                    &:hover, &.active {
                         background: #21A5EF;
                         color: white;
                     }

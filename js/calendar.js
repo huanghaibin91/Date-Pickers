@@ -1,33 +1,35 @@
 Vue.component('calendar', {
     template: `
-        <div class="calendar">
-        <input type="text" placeholder="选择日期" @focus="trueDateBox" :value="date" />
-        <div class="date-box" v-if="dateBoxFlag">
-            <div class="day-select">
-                <div>
-                    <button @click="reduceYear">&laquo;</button>
-                    <button @click="reduceMonth">&lt;</button>
+    <div class="calendar">
+        <input type="text" placeholder="选择日期" @focus="trueDateBox" :value="date" readonly />
+        <transition name="fade">
+            <div class="date-box" v-if="dateBoxFlag">
+                <div class="day-select">
+                    <div>
+                        <button @click="reduceYear">&laquo;</button>
+                        <button @click="reduceMonth">&lt;</button>
+                    </div>
+                    <div>
+                        <input type="text" @click="selected" v-model.number="year" />年
+                        <input type="text" @click="selected" v-model.number="month" />月
+                    </div>
+                    <div>
+                        <button @click="addMonth">&gt;</button>
+                        <button @click="addYear">&raquo;</button>
+                    </div>
                 </div>
-                <div>
-                    <input type="text" @click="selected" v-model.number="year" />年
-                    <input type="text" @click="selected" v-model.number="month" />月
-                </div>
-                <div>
-                    <button @click="addMonth">&gt;</button>
-                    <button @click="addYear">&raquo;</button>
+                <div class="day-screen">
+                    <div>
+                        <span v-for="week in week">{{ week }}</span>
+                    </div>
+                    <div @click="selectDay">
+                        <span v-for="day in previousMonth" class="previousMonth"> {{ day }} </span>
+                        <span v-for="day in monthDay[month - 1]" v-bind:class="isActive(day)" class="currentMonth">{{ day }}</span>
+                        <span v-for="day in nextMonth" class="nextMonth">{{ day }}</span>
+                    </div>
                 </div>
             </div>
-            <div class="day-screen">
-                <div>
-                    <span v-for="week in week">{{ week }}</span>
-                </div>
-                <div @click="selectDay">
-                    <span v-for="day in previousMonth" class="previousMonth"> {{ day }} </span>
-                    <span v-for="day in monthDay[month - 1]" class="currentMonth">{{ day }}</span>
-                    <span v-for="day in nextMonth" class="nextMonth">{{ day }}</span>
-                </div>
-            </div>
-        </div>
+        </transition>
     </div>
     `,
     name: 'calendar',
@@ -44,12 +46,12 @@ Vue.component('calendar', {
         }
     },
     computed: {
-        date() {
+        date () {
             if (this.year == 0 || this.month == 0 || this.day == 0) {
                 return '';
             }
             return this.year + '-' + this.month + '-' + this.day;
-        }
+        },
     },
     watch: {
         year: function () {
@@ -60,17 +62,27 @@ Vue.component('calendar', {
         },
     },
     methods: {
+        // 突出显示当前日期
+        isActive (index) {
+            if (index == this.day) {
+                return {
+                    active: true,
+                }
+            }
+        },
         // 显示日期盒子并初始化
         trueDateBox() {
-            let date = new Date();
-            this.year = date.getFullYear();
-            if (this.isLeapYear(this.year)) {
-                this.monthDay[1] = 29;
-            } else {
-                this.monthDay[1] = 28;
+            if (this.date == '') {
+                let date = new Date();
+                this.year = date.getFullYear();
+                if (this.isLeapYear(this.year)) {
+                    this.monthDay[1] = 29;
+                } else {
+                    this.monthDay[1] = 28;
+                }
+                this.month = date.getMonth() + 1;
+                this.day = date.getDate();
             }
-            this.month = date.getMonth() + 1;
-            this.day = date.getDate();
             this.dayScreen();
             this.dateBoxFlag = true;
         },
