@@ -62,6 +62,9 @@ Vue.component('calendar', {
             if (val < 0) {
                 this.year = 1;
             }
+            if (val > 10000) {
+                this.year = 10000;
+            }
             this.dayScreen();
         },
         month: function (val) {
