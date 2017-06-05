@@ -10,8 +10,8 @@ Vue.component('calendar', {
                         <button @click="reduceMonth">&lt;</button>
                     </div>
                     <div>
-                        <input type="text" @click="selected" v-model.number="year" />年
-                        <input type="text" @click="selected" v-model.number="month" />月
+                        <input type="text" @click="selected" v-model="year" />年
+                        <input type="text" @click="selected" v-model="month" />月
                     </div>
                     <div>
                         <button @click="addMonth">&gt;</button>
@@ -55,7 +55,8 @@ Vue.component('calendar', {
     },
     watch: {
         year: function (val) {
-            if (typeof val !== 'number') {
+            let reg = /^[1-9]\d*$/g;
+            if (!reg.test(val)) {
                 let date = new Date();
                 this.year = date.getFullYear();
             }
@@ -68,7 +69,8 @@ Vue.component('calendar', {
             this.dayScreen();
         },
         month: function (val) {
-            if (typeof val !== 'number') {
+            let reg = /^[1-9]\d*$/g;
+            if (!reg.test(val)) {
                 let date = new Date();
                 this.month = date.getMonth() + 1;
             }

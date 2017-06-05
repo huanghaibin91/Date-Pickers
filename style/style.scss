@@ -19,9 +19,11 @@
         border: 1px solid #EAEAEA;
         border-radius: 5px;
         box-shadow: 2px 2px 2px #eee;
+        background: white;
         position: absolute;
         top: 50px;
         left: 0px;
+        z-index: 99;
         div.day-select {
             display: flex;
             padding: 5px 0;
