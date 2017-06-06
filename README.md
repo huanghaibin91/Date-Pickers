@@ -6,6 +6,8 @@ Vue构建的日期选择组件
 calendar.js --- vue组件文件
 
 style.css --- 样式文件
+
+calendar.vue --- vue单文件组件
 ## 预览地址 ##
 [预览地址](https://huanghaibin91.github.io/Calendar/)
 ## 项目截图 ##
