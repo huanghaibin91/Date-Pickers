@@ -168,8 +168,6 @@
                 } else {
                     this.day = parseInt(e.target.innerText);
                 }
-                // 将日期传递到父组件
-                this.$emit('getdate', this.date);
                 this.dateBoxFlag = false;
             },
             // 日期显示
