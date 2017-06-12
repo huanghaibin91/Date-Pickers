@@ -1,6 +1,6 @@
-Vue.component('calendar', {
+Vue.component('datepickers', {
     template: `
-    <div class="calendar">
+    <div class="date-pickers">
         <input type="text" placeholder="选择日期" @focus="trueDateBox" :value="date" readonly />
         <transition name="fade">
             <div class="date-box" v-if="dateBoxFlag">
@@ -32,7 +32,7 @@ Vue.component('calendar', {
         </transition>
     </div>
     `,
-    name: 'calendar',
+    name: 'datePickers',
     data() {
         return {
             dateBoxFlag: false,
