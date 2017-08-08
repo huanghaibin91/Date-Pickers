@@ -6,7 +6,7 @@ Vue构建的日期选择组件
 
 datepickers.js --- vue组件文件
 
-style.css --- 样式文件
+style.css --- 样式文件，可以按照自己喜欢重写样式
 
 datePickers.vue --- vue单文件组件
 
